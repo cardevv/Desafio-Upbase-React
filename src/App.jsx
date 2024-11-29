@@ -1,57 +1,37 @@
-
-import './App.css'
-//Components
+import './App.css';
+import './index.css'
+// Components
 import Home from './components/Home';
 import UserForm from './components/UserForm';
 import DataForm from './components/DataForm';
- import { GrLinkNext , GrFormNext } from "react-icons/gr";
-
-
- //Hooks
-
+// Hooks
 import { useForm } from './hooks/useForm';
-
+import { Route, Router, Routes } from 'react-router-dom';
 
 function App() {
-
   const formComponents = [
-    <UserForm></UserForm>,
-      <Home></Home>,
-      <DataForm></DataForm>
+    <UserForm  />, // Passando changeStep como prop
+    <Home  />, // Passando changeStep como prop
+    <DataForm />
   ];
 
-  const {currentStep, currentComponent , changeStep , isFirstStep , isLastStep , isDados , isHome} = useForm(formComponents)
-
+  const { currentStep, currentComponent, changeStep, isFirstStep, isLastStep, isDados, isHome } = useForm(formComponents);
 
   return (
-     <div className="app">
-      <div className="header">
-        
-      </div>
-      <div>
-        
-        <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
-          <div className="inputs-container">{currentComponent}</div>
 
-          <div className="actions">
-            {!isFirstStep && !isHome &&  (
-              <button type="button" onClick={() => changeStep(currentStep -1)}>
-              <span>Voltaraaaaa</span>
-              
+    <Router>
+      <Routes>
+      <Route path="/" element={UserForm}></Route>
+      <Route path='/home' element={Home}></Route>
+      <Route path='/dados' element={DataForm}></Route>
 
-            </button>
-            )}
-            {!isLastStep && !isHome ? (<div className='div-entrar'>
-              <button  type='submit'>
-                <span >Entrar</span>
-                
-                </button>
-            </div>) : ""}
-            </div>
-        </form>
-      </div>
-     </div>
-  )
+      </Routes>
+     
+
+
+    </Router>
+   
+  );
 }
 
-export default App
+export default App;
