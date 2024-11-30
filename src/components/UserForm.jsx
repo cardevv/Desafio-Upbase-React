@@ -5,10 +5,13 @@ import { useForm } from 'react-hook-form';
 
 const UserForm = () => {
 
+
+    //hook useform pra conseguir amarzenar os dados que o usuario digitou e usar em outra pagina
+
     const{register , handleSubmit} = useForm();
 
   
-
+  // logica para pegar trocar a pagina e guardar os dados quando o usuario apertar o botão do form
     const navigate = useNavigate();
 
 

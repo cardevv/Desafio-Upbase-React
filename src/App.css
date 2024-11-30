@@ -89,11 +89,71 @@
   cursor: pointer;
 }
 
+/* modal */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; 
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px 8px 0px 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.botao-modal-div {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px; 
+  margin-top: 20px; 
+  
+}
+
+.botao-modal-confirma {
+
+  background-color: #762CBF;
+  color: #e0e0e0;
+  border: none;
+  height: 50px;
+  width: 90vh;
+  border-radius: 10px;
+
+}
+
+.botao-modal-cancela {
+
+  background-color: #0000005C;
+  color: white;
+  border: none;
+  height: 50px;
+  width: 90vh;
+  border-radius: 10px;
+  
+}
+
+@keyframes slide-up {
+  to {
+    transform: translateY(0); 
+  }
+}
+
 /* form data */
 
 .form-data {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 150px;
   margin-bottom: 2rem;
   background-color: #fff;
   padding: 1.5rem;
@@ -160,6 +220,19 @@ textarea {
   border: solid 1px rgba(0, 0, 0, 0.113);
 
 }
+
+input {
+  height: 50px;
+}
+
+.desc-input {
+  width: 100%; /* Para ocupar toda a largura do contêiner */
+  resize: none;
+ 
+ 
+}
+
+
 
 span {
   color: rgb(224, 223, 223);

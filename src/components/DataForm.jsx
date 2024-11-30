@@ -67,13 +67,42 @@ const DataForm = () => {
     setDescricao(e.target.value);
   };
   
+  const [showConfirm, setShowConfirm] = useState(false);
 
  // logica pra trocar de pagina quando o botão for pressionado 
-  const handleVolta = () => {
+ const handleVolta = (e) => {
 
-    navigate("/home")
-    
-  };
+  e.preventDefault();
+  setShowConfirm(true);
+
+ 
+
+}
+
+// logica  contendo a modal com os botoes que recebem as funcoes do que fazer caso confirmado ou cancelado
+const ConfirmationDialog = ({ onConfirm, onCancel }) => (
+  <div className="modal-overlay" onClick={handleCancel}>
+  <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+    <p>Deseja abandonar o cadastro do imóvel? Esta operação não será salva.</p>
+    <div className="botao-modal-div">
+      <button className="botao-modal-confirma" onClick={handleConfirm}>Sim, sair agora!</button>
+      <button  className="botao-modal-cancela" onClick={handleCancel}>Não, quero continuar</button>
+    </div>
+  </div>
+</div>
+); 
+
+
+// se confirmado fecha a modal e volta pra tela de login
+const handleConfirm = () => {
+  setShowConfirm(false); 
+  navigate("/home"); 
+};
+
+// se cancelado apenas fecha a modal
+const handleCancel = () => {
+  setShowConfirm(false); 
+};
 
 
   
@@ -101,6 +130,7 @@ const DataForm = () => {
        
         <div className="form-control">
           <textarea
+          className="desc-input"
             placeholder="Descrição"
             value={descricao}
             onChange={handleChangeDescricao}
@@ -156,6 +186,7 @@ const DataForm = () => {
         </div>
         <button className="botao-continuar" type="submit">Continuar</button>
       </form>
+      {showConfirm && (<ConfirmationDialog onConfirm={handleConfirm} onCancel={handleCancel}/>)}
     </div>
   );
 };
