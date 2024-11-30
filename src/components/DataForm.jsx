@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IoMdArrowBack } from "react-icons/io";
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
 
 
 
@@ -101,10 +101,11 @@ const ConfirmationDialog = ({ onConfirm, onCancel }) => (
 ); 
 
 
-// se confirmado fecha a modal e volta pra tela de login
+// se confirmado fecha a modal e volta pra tela home
 const handleConfirm = () => {
   setShowConfirm(false); 
   navigate("/home"); 
+  
 };
 
 // se cancelado apenas fecha a modal
@@ -121,7 +122,7 @@ const handleCancel = () => {
     
       
     
-    <div id="div-data" className="container">
+    <div  className="container div-data">
       <form   className="form-data" onSubmit={handleSubmit}>
           
         <header className="header">
@@ -148,7 +149,7 @@ const handleCancel = () => {
           <small className="text-count">{descricao.length}/250</small>
         </div>
         <div className="form-control">
-          <input type="text" placeholder="CEP" maxLength="8" onChange={handleCepChange}  required />
+          <input type="text" placeholder="Coloque CEP, dados serão preenchidos automaticamente." maxLength="8" onChange={handleCepChange}  required />
         </div>
         <div className="form-control">
           <input type="text" placeholder="Endereço" value={informacoes.logradouro} required  />
