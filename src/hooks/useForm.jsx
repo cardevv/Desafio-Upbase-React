@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-// Função para alterar os passos do formulario
+// primeira tentativa de função para passar pra proxima tela que acabei mudando para react router.
 
 export function useForm(steps) {
 

@@ -12,7 +12,15 @@ import { useNavigate } from "react-router-dom";
 const DataForm = () => {
 
 
- // https://viacep.com.br/ws/01001000/json/
+
+  const handleSubmit = () => {
+    
+    
+    navigate("/home");
+ }
+
+
+ 
  const api = axios.create({
   baseURL: "https://viacep.com.br/ws/"
 })
@@ -114,7 +122,7 @@ const handleCancel = () => {
       
     
     <div id="div-data" className="container">
-      <form   className="form-data">
+      <form   className="form-data" onSubmit={handleSubmit}>
           
         <header className="header">
               <button onClick={handleVolta} className="back-button"><IoMdArrowBack  size={33}/></button>
