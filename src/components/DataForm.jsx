@@ -140,13 +140,13 @@ const handleCancel = () => {
           <small className="text-count">{descricao.length}/250</small>
         </div>
         <div className="form-control">
-          <input type="text" placeholder="CEP"  onChange={handleCepChange}  required />
+          <input type="text" placeholder="CEP" maxLength="8" onChange={handleCepChange}  required />
         </div>
         <div className="form-control">
-          <input type="text" placeholder="Endereço" value={informacoes.logradouro} required readOnly />
+          <input type="text" placeholder="Endereço" value={informacoes.logradouro} required  />
           <div className="form-control same-line" >
         <input type="text" placeholder="Número" />
-        <input  value={informacoes.complemento} type="text" placeholder="Complemento"  />
+        <input   type="text" placeholder="Complemento"  />
         </div>
       
         </div>
