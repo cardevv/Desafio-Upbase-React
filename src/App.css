@@ -110,6 +110,7 @@
   border-radius: 8px 8px 0px 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  width: 800px;
 }
 
 .botao-modal-div {
@@ -126,7 +127,7 @@
   color: #e0e0e0;
   border: none;
   height: 50px;
-  width: 90vh;
+  width: 750px;
   border-radius: 10px;
 
 }
@@ -137,7 +138,7 @@
   color: white;
   border: none;
   height: 50px;
-  width: 90vh;
+  width: 750px;
   border-radius: 10px;
   
 }
@@ -150,8 +151,11 @@
 
 /* form data */
 
+
+
 .form-data {
-  max-width: 800px;
+  max-width: 500px;
+  
   margin: 0 auto;
   margin-top: 150px;
   margin-bottom: 2rem;
@@ -228,7 +232,9 @@ input {
 .desc-input {
   width: 100%; /* Para ocupar toda a largura do contêiner */
   resize: none;
- 
+  padding: 10px; /* Adiciona um pouco de espaço interno */
+  border: 1px solid #ccc; /* Borda padrão */
+  border-radius: 4px; /* Bordas arredondadas */
  
 }
 
@@ -263,7 +269,7 @@ margin-top: 20px;
   border: none;
   border-radius: 20px;
   height: 50px;
-  width: 600px;
+  width: 450px;
   
 }
 

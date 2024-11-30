@@ -15,7 +15,7 @@ function App() {
     <DataForm />
   ];
 
-  const { currentStep, currentComponent, changeStep, isFirstStep, isLastStep, isDados, isHome } = useForm(formComponents);
+  
 
   return (
 
