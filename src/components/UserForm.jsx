@@ -21,36 +21,38 @@ const UserForm = () => {
 
    
     return(
-        <form className="form-login" onSubmit={handleSubmit(onSubmit)}  >
-            <img src={img} alt="logo poundsflats"  id="logo"/>
+        
+            <form className="form-login" onSubmit={handleSubmit(onSubmit)}  >
+                <img src={img} alt="logo poundsflats"  id="logo"/>
             
-            <div className="form-control">
-            <label htmlFor="name"></label>
-            <input type="text" 
-           
-            {...register("name")} 
-            id="name"
-            placeholder="Digite seu nome"
-            required
-            />
-                
-            </div>
-            <div className="form-control">
-            <label htmlFor="password"></label>
-            <input type="password" 
-            name="password" 
-            id="password"
-            placeholder="Digite sua senha"
-           
+                <div className="form-control">
+                <label htmlFor="name"></label>
+                <input type="text"
             
-            />
-                
-            </div>
-            <div className='div-entrar'>
-                <button className="botao-continuar" type="submit">Entrar</button>
-             
-            </div>
-        </form>
+                {...register("name")}
+                id="name"
+                placeholder="Digite seu nome"
+                required
+                />
+            
+                </div>
+                <div className="form-control">
+                <label htmlFor="password"></label>
+                <input type="password"
+                name="password"
+                id="password"
+                placeholder="Digite sua senha"
+            
+            
+                />
+            
+                </div>
+                <div className='div-entrar'>
+                    <button className="botao-continuar" type="submit">Entrar</button>
+            
+                </div>
+            </form>
+       
        
     );
 };

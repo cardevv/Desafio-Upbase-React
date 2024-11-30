@@ -13,12 +13,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Home = ( ) => {
 
-  
+  // pegar os dados que foram armazenados na outra pagina
    const location = useLocation();
+
+   const {name} = location.state || {};
 
   const navigate = useNavigate();
 
-  const {name} = location.state || {};
+  
 
   const handleVolta = () => {
 

@@ -1,4 +1,4 @@
-
+import axios from "axios";
 import { IoMdArrowBack } from "react-icons/io";
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -7,20 +7,68 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
+
 const DataForm = () => {
 
 
+ // https://viacep.com.br/ws/01001000/json/
+ const api = axios.create({
+  baseURL: "https://viacep.com.br/ws/"
+})
+  
+  const [cep, setCep] = useState('');
+    const [informacoes, setInformacoes] = useState({
+        logradouro: '',
+        complemento: '',
+        bairro: '',
+        localidade: '',
+        uf: '',
+    });
+   
+
+    // fazer requisão dos dados pelo cep inserido pelo usuario na api ViaCep
+  const buscarEndereco = (cep) => {
+    axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => {
+            if (response.data && !response.data.erro) {
+                setInformacoes(response.data);
+            } else {
+                alert('CEP não encontrado');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao buscar o CEP:', error);
+        });
+};
+
+   //  definir o cep que o usuario digitou e se o cep tiver 8 digitos faz a busca na API
+   const handleCepChange = (e) => {
+    const novoCep = e.target.value;
+    setCep(novoCep);
+
+    if (novoCep.length === 8) { // Verifica se o CEP tem 8 dígitos
+        buscarEndereco(novoCep);
+    }
+};
+
+    
+
+ 
   const navigate = useNavigate();
+  
 
   
 
-
+ // logica pra mostrar o numero de caracteres confome o usuario digita
   const [descricao, setDescricao] = useState('');
   
   const handleChangeDescricao = (e) => {
     setDescricao(e.target.value);
   };
+  
 
+ // logica pra trocar de pagina quando o botão for pressionado 
   const handleVolta = () => {
 
     navigate("/home")
@@ -62,21 +110,21 @@ const DataForm = () => {
           <small className="text-count">{descricao.length}/250</small>
         </div>
         <div className="form-control">
-          <input type="text" placeholder="CEP" required />
+          <input type="text" placeholder="CEP"  onChange={handleCepChange}  required />
         </div>
         <div className="form-control">
-          <input type="text" placeholder="Endereço" required />
+          <input type="text" placeholder="Endereço" value={informacoes.logradouro} required readOnly />
           <div className="form-control same-line" >
-        <input type="text" placeholder="Número" required />
-        <input type="text" placeholder="Complemento" />
+        <input type="text" placeholder="Número" />
+        <input  value={informacoes.complemento} type="text" placeholder="Complemento"  />
         </div>
       
         </div>
       
         <div className="form-control same-line">
-          <input type="text" placeholder="Cidade" required />
-          <select required>
-            <option value="">Selecione o UF</option>
+          <input type="text" placeholder="Cidade" required  value={informacoes.localidade}/>
+          <select required value={informacoes.uf}>
+            <option >Selecione o UF</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
