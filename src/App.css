@@ -357,3 +357,55 @@ h2 {
 }
 
 
+/*  media queries */
+
+@media (max-width: 768px) {
+  .form-login {
+    max-width: 90%; 
+    margin-top: 50px;
+    padding: 1rem;
+    box-shadow: none; 
+  }
+
+  .botao-continuar {
+    width: 100%; 
+    height: 45px;
+  }
+
+  #logo {
+    max-width: 100%; 
+    height: auto;
+  }
+
+  .modal-content {
+    padding: 15px; 
+  }
+
+  .modal-content p {
+    font-size: 1rem; 
+  }
+
+  .botao-modal-confirma,
+  .botao-modal-cancela {
+    height: 45px; 
+    font-size: 0.9rem; 
+  }
+
+
+  .form-control.same-line {
+    flex-direction: column; 
+  }
+
+  .container.div-data {
+    padding: 10px;
+  }
+
+  .back-button {
+    font-size: 1.5rem;
+  }
+
+
+ 
+}
+
+

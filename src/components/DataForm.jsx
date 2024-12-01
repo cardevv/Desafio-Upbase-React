@@ -144,6 +144,7 @@ const handleCancel = () => {
             value={descricao}
             onChange={handleChangeDescricao}
             maxLength="250"
+            rows="6"
             required
           />
           <small className="text-count">{descricao.length}/250</small>
